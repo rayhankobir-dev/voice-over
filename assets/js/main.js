@@ -25,22 +25,22 @@ $(document).ready(function () {
     },
   });
 
-  $(document).ready(function () {
-    const buttons = Array.from($(".accordion button"));
-    buttons.forEach((button) => {
-      $(button).click(() => {
-        const arrowUp = $(button).find("svg:first-child");
-        const arrowDown = $(button).find("svg:last-child");
+  //handle accordion here
+  const buttons = Array.from($(".accordion button"));
+  buttons.forEach((button) => {
+    $(button).click(() => {
+      const arrowUp = $(button).find("svg:first-child");
+      const arrowDown = $(button).find("svg:last-child");
 
-        const targetId = $(button).attr("target-id");
-        const target = $(`#${targetId}`);
-        $(".accordion p").not(target).hide();
+      const targetId = $(button).attr("target-id");
+      const target = $(`#${targetId}`);
+      $(".accordion p").not(target).hide();
 
-        target.fadeToggle("slow");
-      });
+      target.fadeToggle("slow");
     });
   });
 
+  //handler mobile menu and responsiveness
   Array.from($("#mobile-menu a")).forEach((a) => {
     $(a).click(() => {
       $("#mobile-menu").hide();
@@ -85,12 +85,62 @@ $(document).ready(function () {
         }
       });
     },
-    { threshold: 0.5 }
+    { threshold: 0.1 }
   );
 
   observer.observe(document.getElementById("contact"));
+
+  //demo audios controlls
+  Array.from($(".play-button")).forEach((button) => {
+    $(button).click(() => {
+      const playIcon = button.querySelector(".fa-solid.fa-circle-play");
+      const pauseIcon = button.querySelector(".fa-solid.fa-circle-pause");
+      const audio = button.querySelector("audio");
+
+      const playButtons = Array.from($(".play-button"));
+      const visiblePlayButtons = playButtons.filter(function (playButton) {
+        return playButton !== button;
+      });
+
+      Array.from(visiblePlayButtons).forEach((item) => {
+        const playIcon = item.querySelector(".fa-solid.fa-circle-play");
+        const pauseIcon = item.querySelector(".fa-solid.fa-circle-pause");
+        $(playIcon).removeClass("hidden");
+        $(pauseIcon).addClass("hidden");
+        item.querySelector("audio").pause();
+      });
+
+      if (audio.paused) {
+        $(playIcon).addClass("hidden");
+        $(pauseIcon).removeClass("hidden");
+        audio.play();
+      } else {
+        $(pauseIcon).addClass("hidden");
+        $(playIcon).removeClass("hidden");
+        audio.pause();
+      }
+    });
+  });
 });
 
+// handle openning mobile menu
 function openMobileMenu() {
   $("#mobile-menu").toggle();
+}
+
+// handle hero section audio play pause
+function playPauseAudio(button) {
+  const audio = document.getElementById("myAudio");
+  const playIcon = button.querySelector(".fa-solid.fa-circle-play");
+  const pauseIcon = button.querySelector(".fa-solid.fa-circle-pause");
+
+  if (audio.paused) {
+    $(playIcon).addClass("hidden");
+    $(pauseIcon).removeClass("hidden");
+    audio.play();
+  } else {
+    $(pauseIcon).addClass("hidden");
+    $(playIcon).removeClass("hidden");
+    audio.pause();
+  }
 }

@@ -109,9 +109,16 @@
                                     d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                             </svg>
                         </button>
-                        <button class="inline-flex items-center gap-2  text-4xl text-blue-600">
-                            <i class="fa-solid fa-circle-play"></i>
+                        <button onclick="playPauseAudio(this)"
+                            class="inline-flex items-center gap-2  text-4xl text-blue-600">
+                            <i class="bg-white rounded-full fa-solid fa-circle-play"></i>
+                            <i class="hidden bg-white rounded-full fa-solid fa-circle-pause"></i>
                             <p class="text-lg text-white font-light">Play Demo</p>
+
+                            <audio class="hidden" id="myAudio">
+                                <source src="assets/audios/audio-1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
                         </button>
                     </div>
                 </div>
@@ -430,38 +437,107 @@
             </div>
         </section>
 
-        <!-- client section -->
-        <section class="relative bg-blue-600 overflow-hidden">
+        <!-- demo section -->
+        <section id="demos" class="relative bg-blue-600 overflow-hidden">
             <img class="absolute top-0 left-0 w-full opacity-20" src="assets/images/pattern-bg.png" alt="pattern-bg">
             <div class="relative max-w-7xl mx-auto pb-20 px-6 lg:px-0">
                 <div class="max-w-2xl mx-auto mt-20 flex flex-col items-center gap-5 text-white">
                     <h4 class="text-lg font-medium uppercase rounded border-b-2 border-white py-1">
-                        My Clients
+                        Demo
                     </h4>
-                    <h2 class="text-4xl text-center font-semibold">My Beloved Clients</h2>
+                    <h2 class="text-4xl text-center font-semibold">Recent Works and Demos</h2>
+                    <p class="text-center font-light">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, exercitationem
+                        tempore aut optio quod iusto ad recusandae quasi eum eaque voluptatem ipsam vitae magnam magni
+                        minus sed animi rerum. Est!
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-5 md:grid-cols-10 gap-3 mt-14">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-1.png"
-                        alt="client-1">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-2.png"
-                        alt="client-2">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-3.png"
-                        alt="client-3">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-4.png"
-                        alt="client-4">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-5.png"
-                        alt="client-5">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-1.png"
-                        alt="client-1">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-2.png"
-                        alt="client-2">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-3.png"
-                        alt="client-3">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-4.png"
-                        alt="client-4">
-                    <img class="bg-gray-50 p-2 rounded-lg bg-opacity-20" src="assets/images/client-5.png"
-                        alt="client-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-14">
+
+                    <div class="relative rounded-lg overflow-hidden">
+                        <img class="absolute top-0 left-0" src="assets/images/pattern-bg.png" alt="pattern-bg">
+                        <div class="flex gap-3 md:gap-8 relative bg-white p-3 md:p-6 items-center bg-opacity-90">
+                            <button class="play-button text-5xl text-blue-600">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <i class="hidden fa-solid fa-circle-pause"></i>
+                                <audio class="hidden">
+                                    <source src="assets/audios/audio-1.mp3" type="audio/mpeg">
+                                </audio>
+                            </button>
+                            <div class="">
+                                <h1 class="py-2 text-xl font-medium">Title</h1>
+                                <p class="text-sm font-light">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, eaque assumenda
+                                    amet omnis architecto consectetur dolores iure qui, perferendis tempore, saepe
+                                    suscipit error officia eveniet veniam ea nobis tempora laudantium!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-lg overflow-hidden">
+                        <img class="absolute top-0 left-0" src="assets/images/pattern-bg.png" alt="pattern-bg">
+                        <div class="flex gap-3 md:gap-8 relative bg-white p-3 md:p-6 items-center bg-opacity-90">
+                            <button class="play-button text-5xl text-blue-600">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <i class="hidden fa-solid fa-circle-pause"></i>
+                                <audio class="hidden">
+                                    <source src="assets/audios/audio-2.mp3" type="audio/mpeg">
+                                </audio>
+                            </button>
+                            <div class="">
+                                <h1 class="py-2 text-xl font-medium">Title</h1>
+                                <p class="text-sm font-light">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, eaque assumenda
+                                    amet omnis architecto consectetur dolores iure qui, perferendis tempore, saepe
+                                    suscipit error officia eveniet veniam ea nobis tempora laudantium!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-lg overflow-hidden">
+                        <img class="absolute top-0 left-0" src="assets/images/pattern-bg.png" alt="pattern-bg">
+                        <div class="flex gap-3 md:gap-8 relative bg-white p-3 md:p-6 items-center bg-opacity-90">
+                            <button class="play-button text-5xl text-blue-600">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <i class="hidden fa-solid fa-circle-pause"></i>
+                                <audio class="hidden">
+                                    <source src="assets/audios/audio-3.mp3" type="audio/mpeg">
+                                </audio>
+                            </button>
+                            <div class="">
+                                <h1 class="py-2 text-xl font-medium">Title</h1>
+                                <p class="text-sm font-light">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, eaque assumenda
+                                    amet omnis architecto consectetur dolores iure qui, perferendis tempore, saepe
+                                    suscipit error officia eveniet veniam ea nobis tempora laudantium!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative rounded-lg overflow-hidden">
+                        <img class="absolute top-0 left-0" src="assets/images/pattern-bg.png" alt="pattern-bg">
+                        <div class="flex gap-3 md:gap-8 relative bg-white p-3 md:p-6 items-center bg-opacity-90">
+                            <button class="play-button text-5xl text-blue-600">
+                                <i class="fa-solid fa-circle-play"></i>
+                                <i class="hidden fa-solid fa-circle-pause"></i>
+                                <audio class="hidden">
+                                    <source src="assets/audios/audio-4.mp3" type="audio/mpeg">
+                                </audio>
+                            </button>
+                            <div class="">
+                                <h1 class="py-2 text-xl font-medium">Title</h1>
+                                <p class="text-sm font-light">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, eaque assumenda
+                                    amet omnis architecto consectetur dolores iure qui, perferendis tempore, saepe
+                                    suscipit error officia eveniet veniam ea nobis tempora laudantium!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
